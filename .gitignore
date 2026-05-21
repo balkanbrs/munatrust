@@ -1,0 +1,23 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/.munatrust_usage.json
+*.pyc
+
+# Node
+web/node_modules/
+web/dist/
+extension/node_modules/
+extension/dist/
+extension/*.vsix
+
+# Local env
+.env
+backend/.env
+web/.env
+
+# Editor/system
+.DS_Store
+Thumbs.db
+.vscode-test/
