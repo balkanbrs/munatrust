@@ -2,10 +2,49 @@
 
 All notable changes to the MunaTrust Code Trust VS Code extension are documented here.
 
+## 0.1.30
+
+- Switched paid plan checkout flow from Lemon Squeezy copy to Gumroad-ready launch copy
+- Added Gumroad-ready website pricing links that carry plan hints for purchase automation
+- Prepared public license automation endpoints for purchase ping ingestion and remote license verification
+- Clarified the 7-day Solo trial launch positioning and automatic license email delivery
+
+## 0.1.29
+
+- Refined marketplace positioning and package metadata for a sharper product pitch
+- Updated pricing copy to Free, Solo $9, Pro $19, and Team $99
+- Switched marketplace screenshots and logo references to stable GitHub raw asset URLs
+
+## 0.1.28
+
+- Finalized monetized scan levels for Free, Solo, Pro, and Team plans
+- Added monthly Advanced AI Scan quota messaging to the packaged scan experience
+- Clarified that Free uses basic local private scan while Solo+ unlocks full private deep scan
+- Updated packaged overview copy for OpenVSX and VS Marketplace readiness
+
+## 0.1.27
+
+- Added explicit scan type selection for Basic Scan, Advanced AI Scan, and Full Private Deep Scan
+- Added local Ollama model presets for full private scans with exact `ollama pull` guidance
+- Clarified that Advanced AI Scan sends only sanitized risk context to MunaTrust's Ollama Cloud integration
+- Documented that Basic Scan remains fast, local, and free while Full Private Deep Scan stays fully local
+
+## 0.1.26
+
+- Repackaged the release after verified VS Code smoke coverage
+- Kept the explicit local AI model note for `qwen2.5-coder:3b`
+- Prepared synchronized Open VSX and VS Code Marketplace release artifacts
+
+## 0.1.25
+
+- Clarified local AI model requirements in the packaged README
+- Documented that `qwen2.5-coder:3b` is the current default local reasoning model
+- Explained the difference between deterministic-only local scan mode and advanced AI-assisted reasoning
+
 ## 0.1.24
 
 - Updated Marketplace and project metadata to the real GitHub repository `balkanbrs/munatrust`
-- Added the approved Marketplace screenshot set to the release package
+- Added approved Marketplace screenshot set to the packaged README
 - Prepared a fresh Open VSX and VS Code Marketplace release pass after `0.1.23`
 
 ## 0.1.22

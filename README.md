@@ -1,15 +1,46 @@
+![MunaTrust](https://raw.githubusercontent.com/balkanbrs/munatrust/main/media/munatrust-logo.png)
+
 # MunaTrust Code Trust
 
 **Trust your code. Ship with confidence.**
 
-MunaTrust Code Trust is a local-first AI code trust scanner for reviewing risky generated code patterns, exposed secrets, package risk, and release confidence before you ship.
+MunaTrust Code Trust is an AI code trust scanner for detecting risky generated code patterns, exposed secrets, and release trust issues before they reach production.
 
-It is designed as a professional developer security tool: local-first, manual-first, and focused on helping developers and teams understand what to fix first without changing code automatically.
+Catch dangerous AI-generated code fast, see what is actually risky, and decide what to fix before you ship. MunaTrust stays local-first while giving you deeper reasoning when you want it and a full private local deep scan when you need maximum privacy.
+
+## Scan options
+
+### Basic Scan
+
+- Fast, local, free
+- Static and filesystem-based trust scan
+- No Ollama requirement
+- No cloud usage
+
+### Advanced AI Scan
+
+- Runs the same local extraction first
+- Sends only sanitized risk context for deeper reasoning
+- Designed for deeper prioritization, explanation, and release trust reasoning
+- Optional: you can keep using MunaTrust without it
+
+### Full Private Local Deep Scan
+
+- Fully local deep reasoning
+- No code leaves your machine
+- Best for users who want deeper local reasoning without cloud usage
+
+## MunaTrust scan levels
+
+- **Basic Scan** - unlimited local scan, fast and free
+- **Advanced AI Scan** - deeper AI reasoning with monthly quotas
+- **Full Private Scan** - full private local deep scan
 
 ## Key features
 
 - Full Project Scan with trust scoring
 - Standalone local scan mode that works even without a bundled backend project
+- Scan type selector for Basic, Advanced AI, and Full Private Deep Scan
 - Actionable findings with severity, category, file path, why-it-matters notes, and suggested fixes
 - `.env` and environment exposure detection
 - Secret-like string detection with safe snippet redaction
@@ -32,15 +63,46 @@ Open `Ctrl+Shift+P` and run:
 - `MunaTrust: Upgrade to Pro`
 - `MunaTrust: Upgrade to TEAM`
 
+Additional preview commands are available for diagnostics, workspace trust help, backend guidance, and advanced release workflows.
+
 ## How to run a workspace scan
 
 1. Open a project folder in VS Code
 2. Open the Command Palette
 3. Run `MunaTrust: Scan Workspace`
-4. Review the local trust report with executive summary, top risks, and detailed findings
-5. Run `MunaTrust: Show Report` to reopen the latest report panel
+4. Choose a scan type:
+   - `Basic Scan - Fast, local, free`
+   - `Advanced AI Scan - Deeper AI reasoning`
+   - `Full Private Scan - Full private local deep scan`
+5. Review the local trust report with executive summary, top risks, and detailed findings
+6. Run `MunaTrust: Show Report` to reopen the latest report panel
 
 MunaTrust does not edit files, apply automatic fixes, or upload your source code during this flow.
+
+## Local and cloud AI requirements
+
+MunaTrust has three operating layers:
+
+- **Basic Scan** works without Ollama or a local model
+- **Advanced AI Scan** uses sanitized risk context for deeper reasoning
+- **Full Private Deep Scan** uses local deep reasoning
+
+Current default local fast model:
+
+- `qwen2.5-coder:3b`
+
+Recommended Full Private presets:
+
+- `qwen2.5-coder:3b` - default fast
+- `qwen2.5-coder:7b` - deep analysis
+- `llama3.1:8b` - better explanation
+- `phi3:mini` - fallback
+
+If a local model is missing, MunaTrust stays usable in deterministic-only mode and shows the exact install command:
+
+```bash
+ollama pull <model>
+```
 
 ## What the report shows
 
@@ -82,39 +144,59 @@ By default, MunaTrust does not upload:
 
 Telemetry is disabled by default unless the user explicitly enables privacy-safe metadata collection.
 
-## Free vs Pro
+Advanced AI Scan note:
 
-### Free Preview
+- Basic Scan and Full Private Deep Scan keep code local
+- Advanced AI Scan sends only sanitized risk context, not a blind raw repository upload
 
-- Full Project Scan with limited usage
-- Hallucination scan preview
-- Deployment confidence preview
-- Local actionable trust report
-- Local diagnostics
-- Manual-first review experience
+## Pricing and plans
 
-### Pro
+MunaTrust is currently positioned around a **7-day Solo trial** for launch installs and upgrade flows.
 
-- Deeper scan coverage
-- Export-oriented reporting workflows
-- Advanced release trust checks
-- Extended usage limits
-- Future team governance features
+- **7-day Solo trial**
+  - Lets new users experience the Solo workflow first
+  - License key is emailed automatically after checkout
+- **Solo - $9/month**
+  - Basic Scan: unlimited
+  - Advanced AI Scan: 50 scans/month
+  - Full Private Scan: full private deep scan
+- **Pro - $19/month**
+  - Basic Scan: unlimited
+  - Advanced AI Scan: 200 scans/month
+  - Full Private Scan: full private deep scan plus advanced workflows
+- **Team - $99/month**
+  - Basic Scan: unlimited
+  - Advanced AI Scan: 1000 scans/month
+  - Full Private Scan: full private deep scan plus team and governance features
 
-## Lemon Squeezy licensing
+Positioning:
 
-MunaTrust Code Trust is prepared for external licensing with Lemon Squeezy.
+- Local-first AI trust scanning
+- Advanced cloud reasoning when you need it
+- Full private local AI scanning for sensitive projects
+- MunaTrust remains local-first
+
+## Gumroad licensing
+
+MunaTrust Code Trust is prepared for external licensing with Gumroad.
 
 Typical flow:
 
-1. User opens the upgrade flow
-2. MunaTrust opens the configured Lemon Squeezy checkout in the external browser
-3. User receives a license key
-4. User runs `MunaTrust: Activate License`
-5. MunaTrust validates the key through the configured backend endpoint
-6. License status is stored locally in the extension
+1. User starts a 7-day Solo trial or selects Solo / Pro / Team
+2. MunaTrust opens the configured Gumroad checkout in the external browser
+3. Gumroad checkout opens in the external browser
+4. Gumroad sends the license key by email automatically after checkout
+5. User runs `MunaTrust: Activate License`
+6. MunaTrust validates the key through the configured backend endpoint
+7. License status is stored locally in the extension
 
-No Lemon Squeezy API secrets are hardcoded into this extension package.
+No Gumroad or mail secrets are hardcoded into this extension package.
+
+Current billing note:
+
+- Upgrade commands open the configured checkout flow.
+- License activation remains local-first and uses the configured validation endpoint when available.
+- Launch checkout can point users into a 7-day Solo trial before they choose a paid plan.
 
 ## Workspace Trust
 
@@ -126,21 +208,28 @@ Use:
 - `Manage Workspace Trust`
 - `Trust this workspace`
 
-## Marketplace screenshot set
+## Screenshots
 
-The 0.1.24 release includes a polished screenshot set for marketplace listings:
+### Command Palette
 
-- Command Palette
-- Scan Report Overview
-- Actionable Finding Detail
-- Workspace Trust Guidance
+![MunaTrust Command Palette](https://raw.githubusercontent.com/balkanbrs/munatrust/main/media/screenshots/command-palette.png)
 
-## Repositories and listings
+### Scan Report Overview
 
-- GitHub: https://github.com/balkanbrs/munatrust
-- Open VSX: https://open-vsx.org/extension/munatrust/munatrust
-- Visual Studio Marketplace publisher: https://marketplace.visualstudio.com/publishers/MunaTrust
+![MunaTrust Scan Report Overview](https://raw.githubusercontent.com/balkanbrs/munatrust/main/media/screenshots/report-overview.png)
+
+### Actionable Finding Detail
+
+![MunaTrust Finding Detail](https://raw.githubusercontent.com/balkanbrs/munatrust/main/media/screenshots/finding-detail.png)
+
+### Workspace Trust Guidance
+
+![MunaTrust Workspace Trust Guidance](https://raw.githubusercontent.com/balkanbrs/munatrust/main/media/screenshots/workspace-trust.png)
 
 ## Support
 
+Support / contact placeholder:
+
 - `support@munatrust.online`
+
+Replace this with the final public support channel before Marketplace publication.
